@@ -4,7 +4,7 @@ Solution of project "Libft" in school 42
 
 ## Installation
 
-Use GitHub [repository](https://github.com/KamilBczk/Libf-42/tree/master) to install foobar.
+Use GitHub [repository](https://github.com/KamilBczk/Libf-42/tree/master) to install.
 
 ```bash
 git clone https://github.com/KamilBczk/Libf-42/tree/master
