@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kbiczyk <kbiczyk@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kamilbiczyk <kamilbiczyk@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 18:59:13 by kbiczyk           #+#    #+#             */
-/*   Updated: 2021/09/07 21:42:06 by kbiczyk          ###   ########.fr       */
+/*   Updated: 2021/09/08 00:46:01 by kamilbiczyk      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 int	ft_number_table(char const *s, char c)
@@ -56,7 +55,7 @@ char	**ft_alloc_table(char **pa, char const *s, char c, int numberelem)
 			k++;
 			j++;
 		}
-		pa[i] = malloc(sizeof(*(pa[k])) * k + 1);
+		pa[i] = malloc(sizeof(char) * k);
 		if (!pa[i])
 			return (NULL);
 		while (s[j] == c && s[j] != '\0')
@@ -111,15 +110,4 @@ char	**ft_split(char const *s, char c)
 	pa = ft_alloc_table(pa, s, c, ft_number_table(s, c));
 	pa = ft_fill_table(pa, s, c, ft_number_table(s, c));
 	return (pa);
-}
-
-int	main(void)
-{
-	char x[] = "tripouille";
-	char y = 0;
-	char **pa;
-
-	pa = ft_split(x, y);
-	printf("%s", pa[1]);
-	printf("%d", strcmp(pa[0], "tripouille"));
 }
