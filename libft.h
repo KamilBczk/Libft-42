@@ -38,5 +38,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_itoa(int n);
 char	**ft_split(const char *s, char c);
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif

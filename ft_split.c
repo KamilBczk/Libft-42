@@ -6,7 +6,7 @@
 /*   By: kamilbiczyk <kamilbiczyk@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 18:59:13 by kbiczyk           #+#    #+#             */
-/*   Updated: 2021/09/08 00:46:01 by kamilbiczyk      ###   ########.fr       */
+/*   Updated: 2021/09/08 14:49:37 by kamilbiczyk      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	ft_number_table(char const *s, char c)
 	return (total + 2);
 }
 
+#include <stdio.h>
+
 char	**ft_alloc_table(char **pa, char const *s, char c, int numberelem)
 {
 	int	i;
@@ -63,7 +65,7 @@ char	**ft_alloc_table(char **pa, char const *s, char c, int numberelem)
 		i++;
 		k = 0;
 	}
-	pa[i] = malloc(sizeof(*(pa[k])) * k + 1);
+	pa[i] = malloc(sizeof(char) * k);
 	return (pa);
 }
 
