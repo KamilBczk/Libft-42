@@ -6,7 +6,7 @@
 /*   By: kbiczyk <kbiczyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 10:42:05 by kbiczyk           #+#    #+#             */
-/*   Updated: 2021/09/03 11:46:16 by kbiczyk          ###   ########.fr       */
+/*   Updated: 2021/09/10 13:54:55 by kbiczyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	while (*s != '\0')
 	{
 		write(fd, &*s, 1);

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kamilbiczyk <kamilbiczyk@student.42.fr>    +#+  +:+       +#+         #
+#    By: kbiczyk <kbiczyk@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/03 11:36:26 by kbiczyk           #+#    #+#              #
-#    Updated: 2021/09/08 14:27:30 by kamilbiczyk      ###   ########.fr        #
+#    Updated: 2021/09/10 14:16:39 by kbiczyk          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

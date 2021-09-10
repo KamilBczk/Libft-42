@@ -6,7 +6,7 @@
 /*   By: kbiczyk <kbiczyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 17:29:42 by kbiczyk           #+#    #+#             */
-/*   Updated: 2021/09/03 11:46:28 by kbiczyk          ###   ########.fr       */
+/*   Updated: 2021/09/10 11:24:20 by kbiczyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strdup(const char *s1)
 	i = 0;
 	while (s1[i] != '\0')
 		i++;
-	pa = malloc(sizeof(char) * i);
+	pa = malloc(sizeof(char) * i + 1);
 	if (pa == NULL)
 		return (NULL);
 	i = 0;

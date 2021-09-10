@@ -3,113 +3,99 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kamilbiczyk <kamilbiczyk@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kbiczyk <kbiczyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 18:59:13 by kbiczyk           #+#    #+#             */
-/*   Updated: 2021/09/08 14:49:37 by kamilbiczyk      ###   ########.fr       */
+/*   Created: 2021/09/10 09:51:40 by kbiczyk           #+#    #+#             */
+/*   Updated: 2021/09/10 14:19:13 by kbiczyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_number_table(char const *s, char c)
+static int	ft_tab_count(char const *s, char c)
 {
-	int		i;
-	int		total;
-	int		pos;
+	int	i;
+	int	count;
+	int	tmp;
 
 	i = 0;
-	total = 0;
-	pos = 1;
-	if (s[i] == '\0')
-		return (1);
+	count = 0;
+	tmp = 0;
+	if (s == '\0')
+		return (0);
 	while (s[i] != '\0')
 	{
-		if (s[i] == c && pos == 1)
+		if (s[i] == c)
+			tmp = 0;
+		else if (tmp == 0)
 		{
-			total++;
-			pos = 0;
+			tmp = 1;
+			count++;
 		}
-		if (s[i] != c)
-			pos = 1;
 		i++;
 	}
-	if (pos == 0)
-		return (total + 1);
-	return (total + 2);
+	return (count);
 }
 
-#include <stdio.h>
-
-char	**ft_alloc_table(char **pa, char const *s, char c, int numberelem)
+static int	ft_tab_len(char const *s, char c, int i)
 {
-	int	i;
-	int	j;
-	int	k;
+	int	len;
 
-	i = 0;
-	j = 0;
-	k = 0;
-	while (i != numberelem - 1)
+	len = 0;
+	while (s[i] != '\0' && s[i] != c)
 	{
-		while (s[j] != c && s[j] != '\0')
-		{
-			k++;
-			j++;
-		}
-		pa[i] = malloc(sizeof(char) * k);
-		if (!pa[i])
-			return (NULL);
-		while (s[j] == c && s[j] != '\0')
-			j++;
 		i++;
-		k = 0;
+		len++;
 	}
-	pa[i] = malloc(sizeof(char) * k);
-	return (pa);
+	return (len);
 }
 
-char	**ft_fill_table(char **pa, char const *s, char c, int numberelem)
+static char	**ft_tab_free(char const **s, int i)
 {
-	int	i;
-	int	j;
-	int	k;
-
-	i = 0;
-	j = 0;
-	k = 0;
-	while (i != numberelem - 1)
+	while (i > 0)
 	{
-		while (s[j] != c && s[j] != '\0')
-		{
-			pa[i][k] = (char) s[j];
-			k++;
-			j++;
-		}
-		pa[i][k] = '\0';
-		if (!pa[i])
-			return (NULL);
-		while (s[j] == c && s[j] != '\0')
-			j++;
-		i++;
-		k = 0;
+		i--;
+		free((void *)s[i]);
 	}
-	pa[i] = NULL;
+	free(s);
+	return (NULL);
+}
+
+static char	**create_malloc(char const *s, char c)
+{
+	char	**pa;
+
+	pa = (char **)malloc(sizeof(char *) * (ft_tab_count(s, c) + 1));
+	if (!pa || !s)
+		return (NULL);
 	return (pa);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**pa;
+	int		i;
+	int		j;
+	int		k;
+	char	**new;
 
-	if (!s)
+	i = 0;
+	j = 0;
+	new = create_malloc(s, c);
+	if (!new)
 		return (NULL);
-	while (*s == c && *s != '\0')
-		s++;
-	pa = malloc(sizeof(*pa) * (ft_number_table(s, c)));
-	if (!pa)
-		return (NULL);
-	pa = ft_alloc_table(pa, s, c, ft_number_table(s, c));
-	pa = ft_fill_table(pa, s, c, ft_number_table(s, c));
-	return (pa);
+	while (s[i] != '\0' && j < ft_tab_count(s, c))
+	{
+		while (s[i] == c)
+			i++;
+		k = 0;
+		new[j] = (char *)malloc(ft_tab_len(s, c, i) + 1);
+		if (!(new[j]))
+			return (ft_tab_free((char const **)new, j));
+		while (s[i] != '\0' && s[i] != c)
+			new[j][k++] = s[i++];
+		new[j][k] = '\0';
+		j++;
+	}
+	new[j] = 0;
+	return (new);
 }

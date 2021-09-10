@@ -6,13 +6,13 @@
 /*   By: kbiczyk <kbiczyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 17:20:35 by kbiczyk           #+#    #+#             */
-/*   Updated: 2021/09/04 18:20:53 by kbiczyk          ###   ########.fr       */
+/*   Updated: 2021/09/10 14:21:58 by kbiczyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_putnbr_pa(int n, char *pa, int i)
+static char	*ft_putnbr_pa(int n, char *pa, int i)
 {
 	unsigned int	nbr;
 

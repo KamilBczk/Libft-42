@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kamilbiczyk <kamilbiczyk@student.42.fr>    +#+  +:+       +#+        */
+/*   By: kbiczyk <kbiczyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/08 14:26:00 by kamilbiczyk       #+#    #+#             */
-/*   Updated: 2021/09/08 14:26:02 by kamilbiczyk      ###   ########.fr       */
+/*   Created: 2021/09/08 14:26:00 by kbiczyk           #+#    #+#             */
+/*   Updated: 2021/09/10 09:17:02 by kbiczyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

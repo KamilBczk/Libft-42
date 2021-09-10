@@ -6,7 +6,7 @@
 /*   By: kbiczyk <kbiczyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 16:25:59 by kbiczyk           #+#    #+#             */
-/*   Updated: 2021/09/03 11:43:27 by kbiczyk          ###   ########.fr       */
+/*   Updated: 2021/09/10 14:21:21 by kbiczyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	int	signe;
-	int	nb;
+	int					signe;
+	unsigned long int	nb;
 
 	signe = 1;
 	nb = 0;
@@ -31,6 +31,12 @@ int	ft_atoi(const char *str)
 	if (!(*str >= 48 && *str <= 57))
 		str++;
 	while (*str >= 48 && *str <= 57 && *str != '\0')
+	{
 		nb = nb * 10 + (*str++ - '0');
+		if (nb > 2147483647 && signe == 1)
+			return (-1);
+		if (nb > 2147483648 && signe == -1)
+			return (0);
+	}
 	return (signe * nb);
 }

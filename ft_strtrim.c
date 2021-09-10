@@ -6,13 +6,13 @@
 /*   By: kbiczyk <kbiczyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 20:24:45 by kbiczyk           #+#    #+#             */
-/*   Updated: 2021/09/04 16:58:23 by kbiczyk          ###   ########.fr       */
+/*   Updated: 2021/09/10 14:22:30 by kbiczyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	check_str_begin(char *s, char *set, int i)
+static int	check_str_begin(char *s, char *set, int i)
 {
 	int	f;
 	int	pos;
@@ -35,7 +35,7 @@ int	check_str_begin(char *s, char *set, int i)
 	return (i);
 }
 
-int	check_str_end(char *s, char *set, int i)
+static int	check_str_end(char *s, char *set, int i)
 {
 	int	f;
 	int	pos;
@@ -69,6 +69,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		s1len;
 	char	*pa;
 
+	if (!s1)
+		return (NULL);
 	s1len = ft_strlen(s1);
 	begin_trim = check_str_begin((char *)s1, (char *) set, 0);
 	end_trim = check_str_end((char *)s1, (char *) set, s1len);
