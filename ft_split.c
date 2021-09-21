@@ -6,7 +6,7 @@
 /*   By: kbiczyk <kbiczyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 09:51:40 by kbiczyk           #+#    #+#             */
-/*   Updated: 2021/09/10 14:19:13 by kbiczyk          ###   ########.fr       */
+/*   Updated: 2021/09/21 13:11:12 by kbiczyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	ft_tab_count(char const *s, char c)
 	i = 0;
 	count = 0;
 	tmp = 0;
-	if (s == '\0')
+	if (!s)
 		return (0);
 	while (s[i] != '\0')
 	{
